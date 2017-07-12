@@ -1,5 +1,8 @@
 import java.util.*;
-
+/* Problem : Maximum/Largest Sum Contiguous Subarray
+   Write an efficient program to find the sum of contiguous subarray within a one-dimensional array of numbers
+   which has the largest sum.
+*/
 public class MaxSumSubArray {
   public static void main(String args[]) {
     //int[] a = {1,-3,2,5,-8};
@@ -13,10 +16,8 @@ public class MaxSumSubArray {
     System.out.println("max sum,solution1 = " +findMaximumSumSubArrayV1(a));
     System.out.println("max sum,solution2 = " +findMaximumSumSubArrayV2(a));
   }
-  /**
-  Solution 1: Loop through the array and maintain the current sum and max sum seen so far.
-  Runtime   : O(N)
-  Space     : O(1)
+  /* Solution 1: Loop through the array and maintain the current sum and max sum seen so far.
+    Runtime  : O(N), Space : O(1)
   */
   private static int findMaximumSumSubArrayV1(int[] arr) {
     int maximumSum = arr[0];
@@ -28,10 +29,8 @@ public class MaxSumSubArray {
     }
     return maximumSum;
   }
-  /**
-  Solution 2: Loop through the array and maintain the current sum and max sum seen so far.
-  Runtime   : O(N)
-  Space     : O(1)
+  /* Solution 2: Loop through the array and maintain the current sum and max sum seen so far.
+     Runtime   : O(N), Space : O(1)
   */
   private static int findMaximumSumSubArrayV2(int[] arr) {
     int maxSum = 0;
@@ -46,8 +45,7 @@ public class MaxSumSubArray {
     }
     return maxSum;
   }
-/**
-  This function calculate the maximum sum and also the array start and end indices
+/** This function calculate the maximum sum and also the array start and end indices
   for which the maxSum is arrived.
   sub array which shows the maxsum.
   */
@@ -70,8 +68,8 @@ public class MaxSumSubArray {
         maxEndIndex = i; // update the max index when maxSum is updated.
       }
     }
-    System.out.println("max sum  = " + maxSum);
-    //System.out.println("start    = " + maxStartIndex + ", end = " + maxEndIndex);
-    return Arrays.copyOfRange(arr, maxStartIndex, maxEndIndex + 1);
+    System.out.println("largest sum  = " + maxSum);
+    System.out.println("start index  = " + maxStartIndex + ", end index = " + maxEndIndex);
+    return Arrays.copyOfRange(arr, maxStartIndex, maxEndIndex + 1); // return the array
   }
 }
