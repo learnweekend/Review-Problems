@@ -45,9 +45,8 @@ public class MaxSumSubArray {
     }
     return maxSum;
   }
-/** This function calculate the maximum sum and also the array start and end indices
+/** This function calculate the maximum sum and also returns the array start and end indices
   for which the maxSum is arrived.
-  sub array which shows the maxsum.
   */
   private static int[] findSubArrayWithMaximumSum(int[] arr) {
     int N = arr.length;
