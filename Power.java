@@ -2,7 +2,7 @@
 public class Power {
   public static void main(String[] args){
     int x = 2;
-    int y = -2;
+    int y = 8;
     System.out.println(powerV1(x, y));
     System.out.println(powerV2(x, y));
     System.out.println(powerV3(x, y));
