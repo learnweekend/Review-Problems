@@ -5,20 +5,20 @@
    public static void main(String[] args) {
      Node root = new Node(20);
      root.left = new Node(10);
-     root.right = new Node(6);
+     root.right = new Node(25);
      root.right.left = new Node(22);
      root.right.right = new Node(30);
      root.left.left = new Node(5);
      root.left.right = new Node(15);
-     System.out.println(checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+     System.out.println("isBST = " +checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
    }
 
    private static boolean checkBST(Node node, int low, int max){
     if(node == null) return true;
     if(node.data > low && node.data < max){
-      return true;
+      return checkBST(node.left, low, node.data) && checkBST(node.right, node.data, max);
     }
-    return checkBST(node.left, low, node.data) && checkBST(node.right, node.data, max);
+    return false;
    }
 
    private static class Node {
