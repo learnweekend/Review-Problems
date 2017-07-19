@@ -7,7 +7,7 @@
 
  public class KthLargestInBST {
 
-   private static int count = 0; // global counter
+   private static int count = 0; // global counter, solution 3 uses this counter.
 
    public static void main(String[] args) {
      Node root = new Node(20);
@@ -83,7 +83,7 @@
        Runtime : O(K), Space : O(H) - to store recursive call stack.
        Note : The count is a "class" variable (static) so that it will get updated in method call stack.
      */
-     private static Node kthLargestElementInBSTV3(Node node, int k){
+   private static Node kthLargestElementInBSTV3(Node node, int k){
        if(node == null)
           return null;
 
@@ -107,7 +107,7 @@
         Runtime : O(K), Space : O(H) - maximum height of tree
       */
 
-      private static Node kthLargestElementInBSTV4(Node node, int k){
+     private static Node kthLargestElementInBSTV4(Node node, int k){
         if(node == null)
            return null;
         Stack<Node> stack = new Stack<>();
