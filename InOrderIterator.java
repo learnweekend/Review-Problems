@@ -20,6 +20,10 @@ import java.util.*;
 
    @Override
    public Integer next(){
+
+     if(!hasNext()){
+       throw new NoSuchElementException("Tree is Empty!");
+     }
      if(stack.isEmpty()) {
         pushNodeAndLeftParentNodes(root); // push node and left parent nodes to stack.
      }
