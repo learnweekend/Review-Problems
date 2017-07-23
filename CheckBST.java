@@ -10,15 +10,31 @@
      root.right.right = new Node(30);
      root.left.left = new Node(5);
      root.left.right = new Node(15);
-     System.out.println("isBST = " +checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+     System.out.println("isBST = " +checkBSTV1(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+     System.out.println("isBST = " +checkBSTV2(root, 5)); // 5 will be lowest node in the tree (leftmost node)
    }
 
-   private static boolean checkBST(Node node, int low, int max){
+   /* solution 1 :  Uses pre-order traversal */
+
+   private static boolean checkBSTV1(Node node, int low, int max){
     if(node == null) return true;
     if(node.data > low && node.data < max){
-      return checkBST(node.left, low, node.data) && checkBST(node.right, node.data, max);
+      return checkBSTV1(node.left, low, node.data) && checkBSTV1(node.right, node.data, max);
     }
     return false;
+   }
+
+   /* solution 2 :  Uses in-order traversal , previousValue = leftmost node value(min element)
+      In in-order traversal,
+      The current node value should be greater than previous node value and
+      the next node visited should be greater than the current node.
+    */
+   private static boolean checkBSTV2(Node node, int previousValue){
+    if(node == null)
+        return true;
+    return checkBSTV2(node.left, previousValue) && // left child
+                     node.data >= previousValue && // current node
+                     checkBSTV2(node.right, previousValue = node.data); // right child
    }
 
    private static class Node {
